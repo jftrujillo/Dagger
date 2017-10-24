@@ -2,6 +2,7 @@ package codemakers.daggermvvm.data
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
+import android.arch.persistence.room.TypeConverters
 import codemakers.daggermvvm.data.model.Task
 import codemakers.daggermvvm.data.model.TaskDao
 
@@ -10,6 +11,7 @@ import codemakers.daggermvvm.data.model.TaskDao
  */
 
 @Database (entities = arrayOf(Task::class),version = 1)
-abstract class AppDatabase() : RoomDatabase(){
-    abstract fun taskDao (): TaskDao
+@TypeConverters(codemakers.daggermvvm.data.model.TypeConverters::class)
+abstract class AppDatabase : RoomDatabase(){
+    abstract fun taskDao(): TaskDao
 }
