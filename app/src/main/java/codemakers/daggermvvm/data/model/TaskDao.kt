@@ -1,6 +1,7 @@
 package codemakers.daggermvvm.data.model
 
 import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 import io.reactivex.Flowable
 
@@ -11,4 +12,7 @@ import io.reactivex.Flowable
 interface TaskDao {
     @Query("SELECT * FROM task")
     fun getAllTask() : Flowable<List<Task>>
+
+    @Insert
+    fun insert(task: Task)
 }
